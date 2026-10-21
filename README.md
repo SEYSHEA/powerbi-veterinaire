@@ -4,7 +4,7 @@ Data Analyst, Master en statistiques appliquées et analyse décisionnelle.
 
 > Projet personnel
 
-**Site : [seyshea.github.io/portfolio](https://seyshea.github.io/portfolio/)**
+**Site : [cloegueus.github.io/portfolio](https://cloegueus.github.io/portfolio/)**
 
 Le site réunit mon CV et mes projets Power BI.
 
