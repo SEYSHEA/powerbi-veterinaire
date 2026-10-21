@@ -56,12 +56,12 @@
   <div class="conteneur">
     <div class="texte">
       <h2>Les données</h2>
-      <p>Tout est inventé : les produits, les cliniques, les montants. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
+      <p>Les produits, les cliniques et les montants sont tous inventés. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
     </div>
     <table class="donnees">
       <thead><tr><th scope="col">Table</th><th scope="col">Ce qu'elle contient</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande, de janvier 2023 au 16 octobre 2026 : date, clinique, produit, quantité, prix</td></tr>
+        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande entre janvier 2023 et le 16 octobre 2026, avec la date, la clinique, le produit, la quantité et le prix</td></tr>
         <tr><th scope="row">Budget</th><td>L'objectif mensuel de chaque produit, fixé en début d'année, pour 2025 et 2026</td></tr>
         <tr><th scope="row">Forecast</th><td>Le budget 2026 revu en cours d'année</td></tr>
         <tr><th scope="row">Produits</th><td>12 produits, avec leur gamme et l'espèce concernée</td></tr>
@@ -70,7 +70,7 @@
       </tbody>
     </table>
     <div class="texte">
-      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile : les ventes, le budget et le forecast au centre, les produits, les cliniques et les délégués autour, plus une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
+      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour, avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
     </div>
   </div>
 </section>
@@ -96,11 +96,11 @@
         </div>
         <p class="legende">Rapport Power BI exporté en PDF. Données fictives.</p>
         <ol class="notes">
-          <li class="note" data-note="1"><span class="num">1</span><strong>L'atterrissage</strong><p>Le chiffre que la direction regarde en premier : les ventes déjà réalisées en 2026, plus ce que le modèle prévoit d'ici décembre. 2&#8239;267&#8239;698&#8239;€, soit 4&#8239;% au-dessus du budget.</p></li>
+          <li class="note" data-note="1"><span class="num">1</span><strong>L'atterrissage</strong><p>C'est le chiffre que la direction regarde en premier. Il additionne les ventes déjà réalisées en 2026 et ce que le modèle prévoit d'ici décembre, soit 2&#8239;267&#8239;698&#8239;€, 4&#8239;% au-dessus du budget.</p></li>
           <li class="note" data-note="2"><span class="num">2</span><strong>Le modèle contre le forecast</strong><p>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, le forecast de 5,84&#8239;%. Le forecast étant lui aussi inventé, la comparaison est à prendre avec des pincettes.</p></li>
           <li class="note" data-note="3"><span class="num">3</span><strong>Le risque en euros</strong><p>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Ensemble, elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</p></li>
-          <li class="note" data-note="4"><span class="num">4</span><strong>Le réel et le modèle</strong><p>La courbe teal suit les ventes réelles, la verte le modèle. La bande claire autour du modèle donne sa marge d'erreur : plus elle s'élargit, moins il est sûr de lui.</p></li>
-          <li class="note" data-note="5"><span class="num">5</span><strong>La liste d'appels</strong><p>La partie qui sert aux délégués : les cliniques de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours depuis la dernière commande.</p></li>
+          <li class="note" data-note="4"><span class="num">4</span><strong>Le réel et le modèle</strong><p>La courbe teal suit les ventes réelles, la verte le modèle. La bande claire autour du modèle donne sa marge d'erreur, et plus elle s'élargit, moins il est sûr de lui.</p></li>
+          <li class="note" data-note="5"><span class="num">5</span><strong>La liste d'appels</strong><p>C'est la partie qui sert aux délégués. Les cliniques y sont classées de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours depuis la dernière commande.</p></li>
         </ol>
       </div>
     </div>
@@ -124,7 +124,7 @@
       </article>
       <article class="mesure">
         <h3>EYE modele</h3>
-        <p>L'atterrissage de fin d'année : le cumul réel de janvier au dernier mois complet (<code>CF annee</code>), plus la prévision du modèle jusqu'à décembre.</p>
+        <p>L'atterrissage de fin d'année. Il ajoute au cumul réel de janvier au dernier mois complet (<code>CF annee</code>) la prévision du modèle jusqu'à décembre.</p>
         <pre><code>[CF annee] + [Prevision fin annee]</code></pre>
       </article>
       <article class="mesure">
@@ -154,7 +154,7 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
       </article>
       <article class="mesure">
         <h3>CA a risque</h3>
-        <p>Ce que ces cliniques ont acheté sur douze mois : la perte possible, traduite en euros.</p>
+        <p>Ce que ces cliniques ont acheté sur douze mois, autrement dit la perte possible en euros.</p>
         <pre><code>CALCULATE ( SUM ( score_clients[CA_12_mois] ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
       </article>
     </div>
@@ -184,7 +184,7 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
       </div>
       <div class="bloc">
         <h3>Risque de perte client</h3>
-        <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé : ce qu'on savait de chaque clinique à une date donnée, et ce qui s'est passé ensuite.</p>
+        <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé, qui associent ce qu'on savait de chaque clinique à une date donnée et ce qui s'est passé ensuite.</p>
         <table class="comparaison">
           <thead><tr><th scope="col">Sur la période de test</th><th scope="col">Valeur</th></tr></thead>
           <tbody>

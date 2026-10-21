@@ -23,9 +23,9 @@ h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 0 0 18px; font
 .bouton.contour:hover { border-color: var(--blanc); }
 
 /* --- Sections ------------------------------------------------------- */
-section { padding: 72px 0 0; }
+section { padding: 40px 0 0; }
 h2 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; font-weight: 600; }
-.chapeau { color: var(--texte-2); margin: 0 0 28px; max-width: 70ch; }
+.chapeau { color: var(--texte-2); margin: 0 0 18px; }
 
 /* --- Visualiseur ---------------------------------------------------- */
 .visualiseur { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); overflow: hidden; }
@@ -77,7 +77,7 @@ h2 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; font-weight: 600; }
 .liens .bouton.plein:hover { background: var(--teal-fonce); }
 .liens .bouton.contour { color: var(--ardoise); border-color: var(--trait); background: var(--blanc); }
 .liens .bouton.contour:hover { border-color: var(--teal); }
-footer { margin-top: 88px; background: var(--ardoise); color: var(--sur-fonce); font-size: 14px; }
+footer { margin-top: 56px; background: var(--ardoise); color: var(--sur-fonce); font-size: 14px; }
 footer .conteneur { padding: 28px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 footer a { color: var(--blanc); }
 
@@ -120,8 +120,8 @@ dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height
 .panneau + .panneau { border-top: 1px solid var(--trait); padding-top: 32px; }
 
 /* --- Texte courant, tableau des données, mesures DAX ----------------------- */
-.texte p { margin: 0 0 14px; max-width: 74ch; font-size: 17px; line-height: 1.65; }
-section .texte h2 { margin-bottom: 14px; }
+.texte p { margin: 0 0 12px; font-size: 16px; line-height: 1.6; }
+section .texte h2 { margin-bottom: 10px; }
 code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-size: .92em; background: var(--teal-clair); color: var(--teal-fonce); padding: 1px 5px; border-radius: 4px; }
 
 .donnees { width: 100%; border-collapse: collapse; background: var(--blanc); border-radius: var(--rayon); overflow: hidden; box-shadow: var(--ombre); font-size: 15.5px; margin-top: 6px; }
