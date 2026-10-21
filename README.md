@@ -2,7 +2,7 @@
 
 Étude de cas sur l'implantation des établissements vétérinaires en France, à partir de données publiques par département.
 
-> Projet personnel, non affilié à Vetoquinol. La charte graphique reprend les couleurs du site public vetoquinol.fr.
+> Projet personnel
 
 **Site de présentation : [seyshea.github.io/powerbi-veterinaire](https://seyshea.github.io/powerbi-veterinaire/)**
 
