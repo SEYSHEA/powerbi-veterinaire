@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloé Gueusquin · Data Analyst</title>
+<meta name="description" content="Portfolio de Cloé Gueusquin, Data Analyst : CV et projets Power BI.">
+<link rel="stylesheet" href="commun.css">
+<style>
+  body { height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto 1fr; overflow: hidden; background: var(--ardoise); }
+
+  /* --- Bandeau du haut -------------------------------------------------- */
+  .haut { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+          padding: clamp(10px, 2.2vh, 20px) clamp(20px, 3vw, 40px); color: var(--blanc); }
+  .identite strong { font-size: clamp(17px, 1.6vw, 22px); font-weight: 600; }
+  .identite span { color: var(--sur-fonce); margin-left: 12px; font-size: clamp(13px, 1.1vw, 15px); }
+  .haut nav { display: flex; gap: clamp(14px, 2vw, 26px); }
+  .haut nav a { color: var(--sur-fonce); text-decoration: none; font-size: 15px; }
+  .haut nav a:hover { color: var(--blanc); }
+
+  /* --- Les deux zones --------------------------------------------------- */
+  .partage { display: flex; gap: clamp(10px, 1.4vw, 18px); min-height: 0;
+             padding: 0 clamp(10px, 1.4vw, 18px) clamp(10px, 1.4vw, 18px); }
+  .zone { flex: 1 1 0; min-width: 0; border-radius: 18px; position: relative; overflow: hidden;
+          display: flex; flex-direction: column; padding: clamp(18px, 3.2vh, 40px) clamp(20px, 2.8vw, 44px);
+          transition: flex-grow .45s cubic-bezier(.2,.7,.2,1); }
+  .partage:hover .zone { flex-grow: .9; }
+  .partage .zone:hover, .partage .zone:focus-within { flex-grow: 1.15; }
+
+  .zone-tete h2 { font-size: clamp(24px, 3.4vw, 46px); line-height: 1.05; margin: 0 0 8px; font-weight: 600; }
+  .zone-tete p.resume { margin: 0; font-size: clamp(14px, 1.25vw, 17px); max-width: 44ch; }
+  .appel { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: clamp(14px, 1.2vw, 16px); }
+  .appel::after { content: "→"; transition: transform .25s; }
+
+  /* Zone CV, à gauche : un aperçu de la feuille de CV. */
+  .zone-cv { background: var(--teal); color: var(--blanc); text-decoration: none; }
+  .zone-cv .surtitre { color: rgba(255,255,255,.75); }
+  .zone-cv .resume { color: rgba(255,255,255,.9); }
+  .zone-cv:hover .appel::after { transform: translateX(6px); }
+  .zone-cv .appel { margin-top: auto; padding-top: 14px; }
+
+  .feuille-cadre { flex: 1; min-height: 0; display: grid; place-items: center; padding: clamp(10px, 2.5vh, 28px) 0 0; }
+  .feuille { height: 100%; max-height: 520px; aspect-ratio: 1 / 1.414; background: var(--blanc); color: var(--texte);
+             border-radius: 6px; box-shadow: 0 18px 40px rgba(0,0,0,.25); padding: 7% 8%;
+             transform: rotate(-3deg); transition: transform .45s cubic-bezier(.2,.7,.2,1);
+             display: flex; flex-direction: column; gap: 4%; overflow: hidden; font-size: clamp(5px, .62vw, 9px); line-height: 1.35; }
+  .zone-cv:hover .feuille, .zone-cv:focus-visible .feuille { transform: rotate(0deg) scale(1.03); }
+  .feuille .nom { font-size: 2.3em; font-weight: 700; line-height: 1.1; color: var(--ardoise); }
+  .feuille .poste { color: var(--teal); font-weight: 600; font-size: 1.3em; }
+  .feuille .rubrique { text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--teal); font-size: .95em;
+                       border-bottom: 1px solid var(--trait); padding-bottom: 1.5%; margin-bottom: 1.5%; }
+  .feuille .ligne { display: flex; justify-content: space-between; gap: 6px; }
+  .feuille .ligne b { color: var(--ardoise); }
+  .feuille .ligne span { color: var(--texte-2); white-space: nowrap; }
+  .feuille .detail { color: var(--texte-2); }
+  .feuille .pastilles { display: flex; flex-wrap: wrap; gap: 3px; }
+  .feuille .pastilles i { font-style: normal; background: var(--teal-clair); color: var(--teal-fonce); border-radius: 99px; padding: .2em .7em; font-weight: 600; }
+
+  /* Zone projets, à droite : un grand rectangle par projet. */
+  .zone-projets { background: var(--fond); color: var(--texte); }
+  .zone-projets .surtitre { color: var(--teal); }
+  .zone-projets .resume { color: var(--texte-2); }
+  .cartes { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: clamp(10px, 1.8vh, 18px); padding-top: clamp(12px, 2.6vh, 28px); }
+  .projet { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); background: var(--blanc);
+            border-radius: var(--rayon); box-shadow: var(--ombre); overflow: hidden; text-decoration: none; color: inherit;
+            border: 2px solid transparent; transition: border-color .2s, transform .25s, box-shadow .25s; }
+  a.projet:hover, a.projet:focus-visible { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(38,60,63,.16); }
+  a.projet:hover .appel::after { transform: translateX(6px); }
+  .projet .vignette { background: var(--ardoise); min-height: 0; overflow: hidden; }
+  .projet .vignette img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+  .projet-texte { padding: clamp(12px, 2.2vh, 24px) clamp(14px, 1.6vw, 26px); display: flex; flex-direction: column; gap: clamp(4px, 1vh, 10px); min-height: 0; }
+  .projet h3 { margin: 0; font-size: clamp(16px, 1.55vw, 22px); line-height: 1.2; font-weight: 600; }
+  .projet p { margin: 0; color: var(--texte-2); font-size: clamp(13px, 1.05vw, 15px); line-height: 1.45; }
+  .projet .etiquettes li { font-size: clamp(11px, .9vw, 13px); padding: 2px 10px; }
+  .projet .appel { margin-top: auto; color: var(--teal-fonce); }
+
+
+  /* Écrans peu hauts (téléphone à l'horizontale) : on garde l'essentiel. */
+  @media (max-height: 560px) {
+    .zone-tete p.resume, .projet p { display: none; }
+    .identite span { display: none; }
+  }
+  @media (max-height: 430px) {
+    .projet .etiquettes { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .zone, .feuille, .projet { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pivoter" role="status">
+  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <rect x="20" y="6" width="24" height="44" rx="4"/><line x1="29" y1="43" x2="35" y2="43"/>
+    <path d="M50 30a18 18 0 0 1-18 18" stroke-dasharray="3 4"/>
+  </svg>
+  <strong>Tournez votre téléphone</strong>
+  <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
+</div>
+
+<header class="haut">
+  <div class="identite"><strong>Cloé Gueusquin</strong><span>Data Analyst · Power BI · Statistiques</span></div>
+  <nav aria-label="Contact">
+    <a href="mailto:cloegueus1@gmail.com">E-mail</a>
+    <a href="https://www.linkedin.com/in/clo%C3%A9-gueusquin">LinkedIn</a>
+    <a href="https://github.com/SEYSHEA">GitHub</a>
+  </nav>
+</header>
+
+<main class="partage">
+
+  <a class="zone zone-cv" href="cv.html">
+    <div class="zone-tete">
+      <p class="surtitre">Curriculum vitae</p>
+      <h2>Mon parcours</h2>
+      <p class="resume">Master en statistiques appliquées et analyse décisionnelle, trois stages en data chez Dassault Systèmes, Orange et Inter Rhône.</p>
+    </div>
+
+    <div class="feuille-cadre" aria-hidden="true">
+      <div class="feuille">
+        <div>
+          <div class="nom">Cloé Gueusquin</div>
+          <div class="poste">Data Analyst</div>
+        </div>
+        <div>
+          <div class="rubrique">Expériences</div>
+          <div class="ligne"><b>Dassault Systèmes</b><span>2026</span></div>
+          <div class="detail">Stagiaire ingénieure en modélisation mathématique</div>
+          <div class="ligne"><b>Orange</b><span>2025</span></div>
+          <div class="detail">Stagiaire Data Scientist</div>
+          <div class="ligne"><b>Inter Rhône</b><span>2024</span></div>
+          <div class="detail">Stagiaire Data Analyst</div>
+        </div>
+        <div>
+          <div class="rubrique">Formation</div>
+          <div class="ligne"><b>Master Statistiques</b><span>2024–2026</span></div>
+          <div class="detail">Université Caen Normandie</div>
+          <div class="ligne"><b>Licence MIASHS</b><span>2020–2024</span></div>
+          <div class="detail">Université Côte d'Azur</div>
+        </div>
+        <div>
+          <div class="rubrique">Compétences</div>
+          <div class="pastilles"><i>Power BI</i><i>DAX</i><i>SQL</i><i>Python</i><i>R</i><i>SAS</i></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="appel">Voir mon CV</span>
+  </a>
+
+  <section class="zone zone-projets" aria-labelledby="titre-projets">
+    <div class="zone-tete">
+      <p class="surtitre">Projets Power BI</p>
+      <h2 id="titre-projets">Mes tableaux de bord</h2>
+      <p class="resume">Des rapports pensés pour la décision : une question par page, des chiffres lisibles, des choix expliqués.</p>
+    </div>
+
+    <div class="cartes">
+      <a class="projet" href="projets/cliniques-veterinaires.html">
+        <div class="vignette"><img src="img/1_implantation.png" width="1804" height="1034" alt=""></div>
+        <div class="projet-texte">
+          <h3>Cliniques vétérinaires en France</h3>
+          <p>Implantation de l'offre, potentiel par département et constitution du parc depuis 1975, à partir de données publiques INSEE.</p>
+          <ul class="etiquettes"><li>Power BI</li><li>DAX</li><li>Power Query</li></ul>
+          <span class="appel">Explorer le projet</span>
+        </div>
+      </a>
+
+      <a class="projet" href="projets/demo-prediction.html">
+        <div class="vignette"><img src="img/demo_rapport.png" width="1804" height="1034" alt=""></div>
+        <div class="projet-texte">
+          <h3>Démo prédiction</h3>
+          <p>Prévision des ventes et score de risque de perte client : deux modèles Python exécutés dans Power BI, sur des ventes vétérinaires fictives.</p>
+          <ul class="etiquettes"><li>Power BI</li><li>Python</li><li>Statistiques</li></ul>
+          <span class="appel">Explorer le projet</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

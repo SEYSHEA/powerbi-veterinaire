@@ -1,0 +1,117 @@
+/* Mise en page des pages projet : en-tête, visualiseur à repères, démarche, compétences. */
+
+/* --- En-tête -------------------------------------------------------- */
+.entete { background: var(--ardoise); color: var(--blanc); }
+.barre { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.signature { font-weight: 600; letter-spacing: .02em; color: var(--blanc); text-decoration: none; }
+.barre nav { display: flex; gap: 22px; }
+.barre nav a { color: var(--sur-fonce); text-decoration: none; font-size: 15px; }
+.barre nav a:hover { color: var(--blanc); }
+.accroche { padding: 56px 0 64px; }
+.accroche .surtitre { color: var(--sur-fonce); margin: 0 0 14px; }
+h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; max-width: 18ch; }
+.accroche p.intro { font-size: 19px; color: var(--sur-fonce); max-width: 60ch; margin: 0 0 32px; }
+.chiffres { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 36px; padding: 0; list-style: none; max-width: 860px; }
+.chiffres li { background: var(--teal); border-radius: var(--rayon); padding: 16px 18px; }
+.chiffres strong { display: block; font-size: clamp(21px, 5.6vw, 28px); line-height: 1.1; font-weight: 600; white-space: nowrap; }
+.chiffres span { display: block; font-size: 14px; line-height: 1.35; margin-top: 4px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.bouton { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+.bouton.plein { background: var(--blanc); color: var(--ardoise); }
+.bouton.plein:hover { background: var(--teal-clair); }
+.bouton.contour { color: var(--blanc); border-color: rgba(255,255,255,.35); background: transparent; }
+.bouton.contour:hover { border-color: var(--blanc); }
+
+/* --- Sections ------------------------------------------------------- */
+section { padding: 72px 0 0; }
+h2 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; font-weight: 600; }
+.chapeau { color: var(--texte-2); margin: 0 0 28px; max-width: 70ch; }
+
+/* --- Visualiseur ---------------------------------------------------- */
+.visualiseur { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); overflow: hidden; }
+.onglets { display: flex; gap: 6px; padding: 12px; background: var(--ardoise); }
+.onglet { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 10px 18px; border: 0; border-radius: 6px; background: rgba(255,255,255,.1); color: var(--blanc); font: 600 15px var(--police); cursor: pointer; }
+.onglet:hover { background: rgba(255,255,255,.18); }
+.onglet[aria-selected="true"] { background: var(--teal); }
+.panneau { padding: 24px; }
+.panneau[hidden] { display: none; }
+.question { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin: 0 0 16px; }
+.question h3 { margin: 0; font-size: 21px; font-weight: 600; }
+.question .agrandir { background: none; border: 1px solid var(--trait); color: var(--texte-2); border-radius: 6px; padding: 6px 12px; font: 14px var(--police); cursor: pointer; }
+.question .agrandir:hover { border-color: var(--teal); color: var(--teal-fonce); }
+.capture { position: relative; border: 1px solid var(--trait); border-radius: 8px; overflow: hidden; }
+.legende { font-size: 14px; color: var(--texte-2); margin: 10px 0 0; }
+
+.repere { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%;
+          border: 2px solid var(--blanc); background: var(--teal); color: var(--blanc); font: 700 14px var(--police);
+          cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.25); display: none; padding: 0; }
+.js .repere { display: block; }
+.repere::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--teal); opacity: 0; }
+.repere.actif { background: var(--ardoise); transform: translate(-50%, -50%) scale(1.15); }
+.repere.actif::after { opacity: .6; animation: pulse 1.6s ease-out infinite; }
+@keyframes pulse { from { transform: scale(.9); opacity: .7; } to { transform: scale(1.6); opacity: 0; } }
+
+.notes { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.note { border: 1px solid var(--trait); border-radius: 8px; padding: 14px 16px; display: grid; grid-template-columns: 28px 1fr; align-content: start; gap: 0 12px; cursor: pointer; transition: border-color .15s, background .15s; }
+.note:hover, .note.actif { border-color: var(--teal); background: var(--teal-clair); }
+.note .num { width: 26px; height: 26px; border-radius: 50%; background: var(--teal); color: var(--blanc); font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+.note.actif .num { background: var(--ardoise); }
+.note strong { display: block; font-weight: 600; line-height: 1.35; margin-top: 2px; }
+.note p { grid-column: 2; margin: 4px 0 0; font-size: 14.5px; color: var(--texte-2); line-height: 1.5; }
+
+/* --- Démarche ------------------------------------------------------- */
+.etapes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; counter-reset: etape; }
+.etapes li { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); padding: 24px; counter-increment: etape; }
+.etapes li::before { content: "0" counter(etape); display: block; color: var(--teal); font-weight: 700; font-size: 14px; letter-spacing: .08em; margin-bottom: 8px; }
+.etapes h3 { margin: 0 0 8px; font-size: 19px; font-weight: 600; }
+.etapes p { margin: 0; color: var(--texte-2); font-size: 15.5px; }
+
+/* --- Compétences ---------------------------------------------------- */
+.competences { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.bloc { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); padding: 22px 24px; }
+.bloc h3 { margin: 0 0 12px; font-size: 17px; font-weight: 600; }
+
+/* --- Pied de page --------------------------------------------------- */
+.liens { display: flex; flex-wrap: wrap; gap: 12px; }
+.liens .bouton.plein { background: var(--teal); color: var(--blanc); }
+.liens .bouton.plein:hover { background: var(--teal-fonce); }
+.liens .bouton.contour { color: var(--ardoise); border-color: var(--trait); background: var(--blanc); }
+.liens .bouton.contour:hover { border-color: var(--teal); }
+footer { margin-top: 88px; background: var(--ardoise); color: var(--sur-fonce); font-size: 14px; }
+footer .conteneur { padding: 28px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+footer a { color: var(--blanc); }
+
+/* --- Agrandissement ------------------------------------------------- */
+dialog { border: 0; padding: 0; border-radius: var(--rayon); max-width: min(96vw, 1800px); background: var(--blanc); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+dialog::backdrop { background: rgba(20,32,34,.82); }
+dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--ardoise); color: var(--blanc); font-size: 22px; cursor: pointer; }
+
+@media (max-width: 860px) {
+  .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .etapes { grid-template-columns: 1fr; }
+  .barre nav { display: none; }
+  .panneau { padding: 16px; }
+  .onglets { padding: 8px; gap: 4px; }
+  .onglet { padding: 9px 6px; font-size: 14px; }
+  .repere { width: 24px; height: 24px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .repere.actif::after { animation: none; }
+}
+
+/* --- Résultats chiffrés et mises en garde ---------------------------------- */
+.resultats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.resultats .bloc p { margin: 0 0 14px; color: var(--texte-2); font-size: 15.5px; }
+.comparaison { width: 100%; border-collapse: collapse; font-size: 15px; }
+.comparaison th, .comparaison td { padding: 9px 10px; border-bottom: 1px solid var(--trait); text-align: right; }
+.comparaison th:first-child, .comparaison td:first-child { text-align: left; }
+.comparaison thead th { background: var(--ardoise); color: var(--blanc); font-weight: 600; }
+.comparaison thead th:first-child { border-radius: 6px 0 0 0; }
+.comparaison thead th:last-child { border-radius: 0 6px 0 0; }
+.comparaison .meilleur { color: var(--teal-fonce); font-weight: 700; }
+.encadre { margin-top: 16px; border-left: 4px solid var(--teal); background: var(--teal-clair); border-radius: 0 8px 8px 0; padding: 14px 18px; font-size: 15px; }
+.encadre strong { display: block; margin-bottom: 4px; }
+
+@media (max-width: 860px) {
+  .resultats { grid-template-columns: 1fr; }
+}

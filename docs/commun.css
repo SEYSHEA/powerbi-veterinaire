@@ -1,0 +1,71 @@
+/* Styles communs à toutes les pages du portfolio. */
+
+:root {
+  --ardoise: #263C3F;
+  --ardoise-2: #31494C;
+  --teal: #008A90;
+  --teal-fonce: #00595E;
+  --teal-clair: #E3F1F1;
+  --gris-bleu: #4B686C;
+  --gris: #A7A9AC;
+  --fond: #F4F5F5;
+  --blanc: #FFFFFF;
+  --trait: #E3E8E8;
+  --texte: #263C3F;
+  --texte-2: #4B686C;
+  --sur-fonce: #C5DCDE;
+  --rayon: 12px;
+  --ombre: 0 1px 2px rgba(38,60,63,.06), 0 4px 16px rgba(38,60,63,.08);
+  --police: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--fond); color: var(--texte); font: 16px/1.6 var(--police); }
+a { color: var(--teal-fonce); }
+img { max-width: 100%; height: auto; display: block; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+.surtitre { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; margin: 0 0 10px; }
+
+.etiquettes { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.etiquettes li { background: var(--teal-clair); color: var(--teal-fonce); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+
+/* Barre de navigation des pages intérieures (CV, projets). */
+.navigation { background: var(--ardoise); }
+.navigation .conteneur { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
+.navigation .signature { color: var(--blanc); font-weight: 600; text-decoration: none; letter-spacing: .02em; }
+.navigation nav { display: flex; gap: 22px; }
+.navigation nav a { color: var(--sur-fonce); text-decoration: none; font-size: 15px; }
+.navigation nav a:hover, .navigation nav a[aria-current="page"] { color: var(--blanc); }
+.conteneur { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* --- Écran « Tournez votre téléphone » ------------------------------------
+   Le portfolio se consulte sur un écran assez large : un téléphone tenu à la
+   verticale affiche cet écran à la place du contenu. Un site web ne peut pas
+   verrouiller l'orientation lui-même ; il le demande au visiteur. */
+
+.pivoter { display: none; }
+
+@media (orientation: portrait) and (max-width: 900px) {
+  .pivoter {
+    display: flex; position: fixed; inset: 0; z-index: 1000;
+    flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    padding: 32px; text-align: center; background: var(--ardoise); color: var(--blanc);
+  }
+  body { overflow: hidden; }
+}
+
+.pivoter svg { width: 88px; height: 88px; animation: pivoter 2.4s ease-in-out infinite; }
+.pivoter strong { font-size: 22px; font-weight: 600; }
+.pivoter p { margin: 0; color: var(--sur-fonce); max-width: 26ch; }
+
+@keyframes pivoter {
+  0%, 25%   { transform: rotate(0deg); }
+  55%, 100% { transform: rotate(-90deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pivoter svg { animation: none; transform: rotate(-90deg); }
+}

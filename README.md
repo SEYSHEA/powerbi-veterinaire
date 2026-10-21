@@ -4,13 +4,17 @@
 
 > Projet personnel, non affilié à Vetoquinol. La charte graphique reprend les couleurs du site public vetoquinol.fr.
 
+**Site de présentation : [seyshea.github.io/powerbi-veterinaire](https://seyshea.github.io/powerbi-veterinaire/)**
+
+Le site présente aussi un second projet, **Démo prédiction** : prévision des ventes et score de risque client, deux modèles Python exécutés dans Power BI sur des données fictives.
+
 ## Aperçu
 
-![Page Implantation](documents/apercu/1_implantation.png)
+![Page Implantation](docs/img/1_implantation.png)
 
-![Page Potentiel](documents/apercu/2_potentiel.png)
+![Page Potentiel](docs/img/2_potentiel.png)
 
-![Page Dynamique](documents/apercu/3_dynamique.png)
+![Page Dynamique](docs/img/3_dynamique.png)
 
 Le rapport complet est aussi disponible en PDF : [rapport_cliniques_France.pdf](documents/rapport_cliniques_France.pdf).
 
@@ -38,7 +42,8 @@ power_bi/Cliniques_veterinaires_France.pbix   le rapport Power BI
 power_bi/VetoquinolTheme.json                 le thème
 donnees/cliniques_France/                     les données (CSV)
 documents/rapport_cliniques_France.pdf        l'export PDF du rapport
-documents/apercu/                             les captures ci-dessus
+documents/rapport_demo_prediction.pdf        l'export PDF du rapport Démo prédiction
+docs/                                         le site de présentation et ses captures
 ```
 
 ## Ouvrir le rapport

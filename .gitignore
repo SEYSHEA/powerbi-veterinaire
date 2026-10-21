@@ -10,6 +10,12 @@
 !power_bi/VetoquinolTheme.json
 !donnees/cliniques_France/*.csv
 !documents/rapport_cliniques_France.pdf
-!documents/apercu/*.png
+!documents/rapport_demo_prediction.pdf
+!docs/*.html
+!docs/*.css
+!docs/*.js
+!docs/projets/*.html
+!docs/img/*.png
 
 .venv/
+.claude
