@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Démo prédiction · Cloé Gueusquin</title>
-<meta name="description" content="Rapport Power BI sur des ventes vétérinaires fictives : prévision de fin d'année et repérage des cliniques sur le point d'arrêter de commander, avec deux modèles Python exécutés dans Power BI.">
+<meta name="description" content="Rapport Power BI sur des ventes vétérinaires fictives : prévision de fin d'année et repérage des cliniques sur le point d'arrêter de commander avec deux modèles Python exécutés dans Power BI.">
 <link rel="stylesheet" href="../commun.css">
 <link rel="stylesheet" href="../projet.css">
 </head>
@@ -35,7 +35,6 @@
 
       <div class="actions">
         <a class="bouton plein" href="#rapport">Voir le rapport</a>
-        <a class="bouton contour" href="https://github.com/SEYSHEA/powerbi-veterinaire/blob/main/documents/rapport_demo_prediction.pdf">Voir le PDF</a>
       </div>
     </div>
   </div>
@@ -59,16 +58,16 @@
     <table class="donnees">
       <thead><tr><th scope="col">Table</th><th scope="col">Ce qu'elle contient</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande entre janvier 2023 et le 16 octobre 2026, avec la date, la clinique, le produit, la quantité et le prix</td></tr>
+        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande entre janvier 2023 et le 16 octobre 2026 avec la date, la clinique, le produit, la quantité et le prix</td></tr>
         <tr><th scope="row">Budget</th><td>L'objectif mensuel de chaque produit, fixé en début d'année, pour 2025 et 2026</td></tr>
         <tr><th scope="row">Forecast</th><td>Le budget 2026 revu en cours d'année</td></tr>
-        <tr><th scope="row">Produits</th><td>12 produits, avec leur gamme et l'espèce concernée</td></tr>
-        <tr><th scope="row">Cliniques</th><td>260 cliniques, avec leur région et leur délégué</td></tr>
+        <tr><th scope="row">Produits</th><td>12 produits avec leur gamme et l'espèce concernée</td></tr>
+        <tr><th scope="row">Cliniques</th><td>260 cliniques avec leur région et leur délégué</td></tr>
         <tr><th scope="row">Délégués</th><td>8 délégués, un par région</td></tr>
       </tbody>
     </table>
     <div class="texte">
-      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour, avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
+      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
     </div>
   </div>
 </section>
@@ -92,7 +91,7 @@
           <li>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, contre 5,84&#8239;% pour le forecast. Le forecast étant lui aussi inventé, la comparaison reste indicative.</li>
           <li>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</li>
           <li>Sur la courbe, le teal suit les ventes réelles et le vert le modèle, entouré de sa marge d'erreur.</li>
-          <li>Le tableau classe les cliniques de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours sans commande. C'est la liste d'appels des délégués.</li>
+          <li>Le tableau classe les cliniques de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande. C'est la liste d'appels des délégués.</li>
         </ul>
       </div>
     </div>
@@ -160,7 +159,7 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
     <div class="resultats">
       <div class="bloc">
         <h3>Prévision des ventes</h3>
-        <p>Un modèle par produit, avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
+        <p>Un modèle par produit avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
         <table class="comparaison">
           <thead><tr><th scope="col">Sur janvier–septembre 2026</th><th scope="col">Modèle</th><th scope="col">Forecast</th></tr></thead>
           <tbody>
