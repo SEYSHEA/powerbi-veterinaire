@@ -66,6 +66,9 @@
             border: 2px solid transparent; transition: border-color .2s, transform .25s, box-shadow .25s; }
   a.projet:hover, a.projet:focus-visible { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(38,60,63,.16); }
   a.projet:hover .appel::after { transform: translateX(6px); }
+  /* Un seul projet : l'image en pleine largeur au-dessus du texte. */
+  .projet:only-child { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; }
+  .projet:only-child .vignette img { object-position: center top; }
   .projet .vignette { background: var(--ardoise); min-height: 0; overflow: hidden; }
   .projet .vignette img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
   .projet-texte { padding: clamp(12px, 2.2vh, 24px) clamp(14px, 1.6vw, 26px); display: flex; flex-direction: column; gap: clamp(4px, 1vh, 10px); min-height: 0; }
@@ -153,19 +156,10 @@
     <div class="zone-tete">
       <p class="surtitre">Projets Power BI</p>
       <h2 id="titre-projets">Mes tableaux de bord</h2>
-      <p class="resume">Des rapports pensés pour la décision : une question par page, des chiffres lisibles, des choix expliqués.</p>
+      <p class="resume">Des rapports pensés pour la décision : des chiffres lisibles, des choix expliqués.</p>
     </div>
 
     <div class="cartes">
-      <a class="projet" href="projets/cliniques-veterinaires.html">
-        <div class="vignette"><img src="img/1_implantation.png" width="1804" height="1034" alt=""></div>
-        <div class="projet-texte">
-          <h3>Cliniques vétérinaires en France</h3>
-          <p>Implantation de l'offre, potentiel par département et constitution du parc depuis 1975, à partir de données publiques INSEE.</p>
-          <ul class="etiquettes"><li>Power BI</li><li>DAX</li><li>Power Query</li></ul>
-          <span class="appel">Explorer le projet</span>
-        </div>
-      </a>
 
       <a class="projet" href="projets/demo-prediction.html">
         <div class="vignette"><img src="img/demo_rapport.png" width="1804" height="1034" alt=""></div>

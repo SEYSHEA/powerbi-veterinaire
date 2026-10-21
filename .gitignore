@@ -1,15 +1,11 @@
-# Ce dépôt ne publie que le rapport « Cliniques vétérinaires en France ».
+# Ce dépôt publie le portfolio (dossier docs/) et le PDF du rapport Démo prédiction.
 # Tout est exclu par défaut : seuls les fichiers listés ci-dessous sont publiés.
-# Le reste du dossier (démo, révisions, archive, .venv) reste uniquement en local.
+# Le reste du dossier (rapports .pbix, données, scripts, révisions, .venv) reste uniquement en local.
 
 *
 !*/
 !/.gitignore
 !/README.md
-!power_bi/Cliniques_veterinaires_France.pbix
-!power_bi/VetoquinolTheme.json
-!donnees/cliniques_France/*.csv
-!documents/rapport_cliniques_France.pdf
 !documents/rapport_demo_prediction.pdf
 !docs/*.html
 !docs/*.css

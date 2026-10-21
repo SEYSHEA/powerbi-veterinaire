@@ -43,7 +43,7 @@
   .etape li { margin: 3px 0; }
   .etape li strong { color: var(--ardoise); }
 
-  .projets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .projets { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .projet { border: 1px solid var(--trait); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
   a.projet:hover { border-color: var(--teal); background: var(--teal-clair); }
   .projet h3 { margin: 0; font-size: 17px; font-weight: 600; }
@@ -77,7 +77,7 @@
     <nav aria-label="Pages">
       <a href="index.html">Accueil</a>
       <a href="cv.html" aria-current="page">CV</a>
-      <a href="projets/cliniques-veterinaires.html">Projet Power BI</a>
+      <a href="projets/demo-prediction.html">Projet Power BI</a>
     </nav>
   </div>
 </header>
@@ -206,12 +206,6 @@
     <section class="carte" aria-labelledby="titre-projets">
       <h2 id="titre-projets">Projets personnels</h2>
       <div class="projets">
-        <a class="projet" href="projets/cliniques-veterinaires.html">
-          <h3>Cliniques vétérinaires en France</h3>
-          <p>Rapport de 3 pages à partir de données publiques INSEE, avec carte par département et mesures DAX rapportant l'offre de soins à la population et au revenu.</p>
-          <ul class="etiquettes"><li>Power BI</li><li>Power Query</li><li>DAX</li></ul>
-          <span class="lien">Voir le projet</span>
-        </a>
         <a class="projet" href="projets/demo-prediction.html">
           <h3>Démo prédiction : ventes vétérinaires</h3>
           <p>Sur des données fictives, prévision des ventes mensuelles par produit et score de risque de perte client, modèles Python intégrés dans un rapport Power BI.</p>

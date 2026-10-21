@@ -115,3 +115,6 @@ dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height
 @media (max-width: 860px) {
   .resultats { grid-template-columns: 1fr; }
 }
+
+/* Panneaux affichés les uns sous les autres, séparés par un filet. */
+.panneau + .panneau { border-top: 1px solid var(--trait); padding-top: 32px; }

@@ -26,9 +26,6 @@
       <nav aria-label="Sections">
         <a href="../index.html">Accueil</a>
         <a href="../cv.html">CV</a>
-        <a href="#modeles">Les modèles</a>
-        <a href="#fiabilite">Fiabilité</a>
-        <a href="#demarche">Démarche</a>
       </nav>
     </div>
 
@@ -60,14 +57,8 @@
     <p class="chapeau">Le rapport Power BI, puis les deux modèles qui l'alimentent. Les repères numérotés expliquent la lecture : cliquez sur un numéro ou sur une explication pour faire le lien.</p>
 
     <div class="visualiseur">
-      <div class="onglets" role="tablist" aria-label="Modèles">
-        <button class="onglet" role="tab" id="onglet-1" aria-controls="page-1" aria-selected="true">Le rapport Power BI</button>
-        <button class="onglet" role="tab" id="onglet-2" aria-controls="page-2" aria-selected="false" tabindex="-1">Prévision des ventes</button>
-        <button class="onglet" role="tab" id="onglet-3" aria-controls="page-3" aria-selected="false" tabindex="-1">Risque client</button>
-      </div>
-
       <!-- Le rapport Power BI ------------------------------------------ -->
-      <div class="panneau" role="tabpanel" id="page-1" aria-labelledby="onglet-1">
+      <div class="panneau" id="page-1">
         <div class="question">
           <h3>Ce que voit la direction commerciale</h3>
           <button class="agrandir" type="button">Agrandir</button>
@@ -91,7 +82,7 @@
       </div>
 
       <!-- Modèle 1 ------------------------------------------------------ -->
-      <div class="panneau" role="tabpanel" id="page-2" aria-labelledby="onglet-2" hidden>
+      <div class="panneau" id="page-2">
         <div class="question">
           <h3>Combien allons-nous vendre d'ici la fin de l'année ?</h3>
           <button class="agrandir" type="button">Agrandir</button>
@@ -113,7 +104,7 @@
       </div>
 
       <!-- Modèle 2 ------------------------------------------------------ -->
-      <div class="panneau" role="tabpanel" id="page-3" aria-labelledby="onglet-3" hidden>
+      <div class="panneau" id="page-3">
         <div class="question">
           <h3>Quelles cliniques risquent d'arrêter de commander, et pourquoi ?</h3>
           <button class="agrandir" type="button">Agrandir</button>
@@ -219,7 +210,6 @@
 
     <div class="liens" style="margin-top: 32px;">
       <a class="bouton plein" href="https://github.com/SEYSHEA/powerbi-veterinaire">Voir le projet sur GitHub</a>
-      <a class="bouton contour" href="cliniques-veterinaires.html">Autre projet : cliniques vétérinaires</a>
     </div>
   </div>
 </section>
