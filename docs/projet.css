@@ -7,10 +7,10 @@
 .barre nav { display: flex; gap: 22px; }
 .barre nav a { color: var(--sur-fonce); text-decoration: none; font-size: 15px; }
 .barre nav a:hover { color: var(--blanc); }
-.accroche { padding: 56px 0 64px; }
+.accroche { padding: 36px 0 44px; }
 .accroche .surtitre { color: var(--sur-fonce); margin: 0 0 14px; }
-h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; max-width: 18ch; }
-.accroche p.intro { font-size: 19px; color: var(--sur-fonce); max-width: 60ch; margin: 0 0 32px; }
+h1 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.15; margin: 0 0 14px; font-weight: 600; }
+.accroche p.intro { font-size: 17px; line-height: 1.6; color: var(--sur-fonce); max-width: 80ch; margin: 0 0 24px; }
 .chiffres { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 36px; padding: 0; list-style: none; max-width: 860px; }
 .chiffres li { background: var(--teal); border-radius: var(--rayon); padding: 16px 18px; }
 .chiffres strong { display: block; font-size: clamp(21px, 5.6vw, 28px); line-height: 1.1; font-weight: 600; white-space: nowrap; }
@@ -109,8 +109,7 @@ dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height
 .comparaison thead th:first-child { border-radius: 6px 0 0 0; }
 .comparaison thead th:last-child { border-radius: 0 6px 0 0; }
 .comparaison .meilleur { color: var(--teal-fonce); font-weight: 700; }
-.encadre { margin-top: 16px; border-left: 4px solid var(--teal); background: var(--teal-clair); border-radius: 0 8px 8px 0; padding: 14px 18px; font-size: 15px; }
-.encadre strong { display: block; margin-bottom: 4px; }
+.resultats .bloc p.remarque { margin: 14px 0 0; font-size: 15px; line-height: 1.6; color: var(--texte-2); }
 
 @media (max-width: 860px) {
   .resultats { grid-template-columns: 1fr; }
@@ -140,3 +139,8 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 @media (max-width: 860px) {
   .mesures { grid-template-columns: 1fr; }
 }
+
+/* Liste à puces sous la capture du rapport. */
+.points { margin: 16px 0 0; padding-left: 22px; display: grid; gap: 8px; }
+.points li { font-size: 15.5px; line-height: 1.55; color: var(--texte); }
+.points li::marker { color: var(--teal); }

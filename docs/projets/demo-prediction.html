@@ -30,9 +30,8 @@
     </div>
 
     <div class="accroche">
-      <p class="surtitre">Démo prédiction · Power BI et Python</p>
-      <h1>Anticiper les ventes et les clients perdus</h1>
-      <p class="intro">Un rapport de ventes vétérinaires, sur des données fictives, qui estime où l'année va atterrir et repère les cliniques sur le point de partir. Les deux modèles derrière sont écrits en Python et tournent directement dans Power BI.</p>
+      <h1>Prévoir les ventes et repérer les clients perdus</h1>
+      <p class="intro">Un rapport Power BI construit sur des ventes vétérinaires fictives. Il estime le chiffre de fin d'année et signale les cliniques qui risquent d'arrêter de commander, grâce à deux modèles écrits en Python qui tournent dans Power BI.</p>
 
       <div class="actions">
         <a class="bouton plein" href="#rapport">Voir le rapport</a>
@@ -47,8 +46,7 @@
 <section id="objectif">
   <div class="conteneur texte">
     <h2>L'objectif</h2>
-    <p>Un rapport de ventes classique raconte ce qui s'est passé. Je voulais voir s'il pouvait aussi annoncer la suite, avec une marge d'erreur connue plutôt qu'un chiffre jeté en l'air.</p>
-    <p>Il répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
+    <p>Ce rapport répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
   </div>
 </section>
 
@@ -78,7 +76,6 @@
 <section id="rapport">
   <div class="conteneur">
     <h2>Le rapport</h2>
-    <p class="chapeau">Cliquez sur un numéro pour lire l'explication qui va avec.</p>
 
     <div class="visualiseur">
       <div class="panneau" id="page-1">
@@ -88,20 +85,15 @@
         </div>
         <div class="capture">
           <img src="../img/demo_rapport.png" width="1804" height="1034" alt="Rapport Power BI : six chiffres clés (atterrissage, écart au budget, erreurs de backtest, cliniques à risque, chiffre d'affaires à risque), courbe des ventes réelles et du modèle avec son intervalle, et tableau des cliniques classées par probabilité de perte.">
-          <button class="repere" data-gauche="16.3" data-haut="4.8" data-note="1" aria-label="Repère 1">1</button>
-          <button class="repere" data-gauche="50.0" data-haut="4.8" data-note="2" aria-label="Repère 2">2</button>
-          <button class="repere" data-gauche="81.3" data-haut="4.8" data-note="3" aria-label="Repère 3">3</button>
-          <button class="repere" data-gauche="56.1" data-haut="21.2" data-note="4" aria-label="Repère 4">4</button>
-          <button class="repere" data-gauche="96.7" data-haut="21.2" data-note="5" aria-label="Repère 5">5</button>
         </div>
         <p class="legende">Rapport Power BI exporté en PDF. Données fictives.</p>
-        <ol class="notes">
-          <li class="note" data-note="1"><span class="num">1</span><strong>L'atterrissage</strong><p>C'est le chiffre que la direction regarde en premier. Il additionne les ventes déjà réalisées en 2026 et ce que le modèle prévoit d'ici décembre, soit 2&#8239;267&#8239;698&#8239;€, 4&#8239;% au-dessus du budget.</p></li>
-          <li class="note" data-note="2"><span class="num">2</span><strong>Le modèle contre le forecast</strong><p>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, le forecast de 5,84&#8239;%. Le forecast étant lui aussi inventé, la comparaison est à prendre avec des pincettes.</p></li>
-          <li class="note" data-note="3"><span class="num">3</span><strong>Le risque en euros</strong><p>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Ensemble, elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</p></li>
-          <li class="note" data-note="4"><span class="num">4</span><strong>Le réel et le modèle</strong><p>La courbe teal suit les ventes réelles, la verte le modèle. La bande claire autour du modèle donne sa marge d'erreur, et plus elle s'élargit, moins il est sûr de lui.</p></li>
-          <li class="note" data-note="5"><span class="num">5</span><strong>La liste d'appels</strong><p>C'est la partie qui sert aux délégués. Les cliniques y sont classées de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours depuis la dernière commande.</p></li>
-        </ol>
+        <ul class="points">
+          <li>L'atterrissage additionne les ventes déjà réalisées en 2026 et la prévision du modèle jusqu'à décembre. Il atteint 2&#8239;267&#8239;698&#8239;€, soit 4&#8239;% au-dessus du budget.</li>
+          <li>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, contre 5,84&#8239;% pour le forecast. Le forecast étant lui aussi inventé, la comparaison reste indicative.</li>
+          <li>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</li>
+          <li>Sur la courbe, le teal suit les ventes réelles et le vert le modèle, entouré de sa marge d'erreur.</li>
+          <li>Le tableau classe les cliniques de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours sans commande. C'est la liste d'appels des délégués.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -177,10 +169,7 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
             <tr><td>Mois réels dans la marge à 80&#8239;%</td><td>8 sur 9</td><td>–</td></tr>
           </tbody>
         </table>
-        <div class="encadre">
-          <strong>À lire avec prudence</strong>
-          Le forecast de ces données a été tiré au hasard autour du budget, donc le modèle part avantagé. Ce qui m'intéressait, c'est la méthode. Sur de vraies données, les chefs de produit savent des choses que l'historique ignore, comme un lancement ou une rupture de stock. Le modèle servirait alors de point de comparaison, pas de remplaçant.
-        </div>
+        <p class="remarque">Le forecast de ces données a été tiré au hasard autour du budget, donc le modèle part avantagé. Ce qui m'intéressait, c'est la méthode. Sur de vraies données, les chefs de produit savent des choses que l'historique ignore, comme un lancement ou une rupture de stock. Le modèle servirait alors de point de comparaison, pas de remplaçant.</p>
       </div>
       <div class="bloc">
         <h3>Risque de perte client</h3>
@@ -193,38 +182,12 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
             <tr><td>Part de vraies pertes parmi les 10&#8239;% les mieux scorées</td><td class="meilleur">21&#8239;%</td></tr>
           </tbody>
         </table>
-        <div class="encadre">
-          <strong>La limite de l'exercice</strong>
-          Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.
-        </div>
+        <p class="remarque">Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="competences">
-  <div class="conteneur">
-    <h2>Compétences mobilisées</h2>
-    <div class="competences" style="margin-top: 20px;">
-      <div class="bloc">
-        <h3>Power BI</h3>
-        <ul class="etiquettes"><li>Modèle en étoile</li><li>Mesures DAX</li><li>Power Query</li><li>Python dans Power Query</li></ul>
-      </div>
-      <div class="bloc">
-        <h3>Statistiques</h3>
-        <ul class="etiquettes"><li>Régression</li><li>Saisonnalité</li><li>Intervalle de prévision</li><li>Régression logistique</li><li>AUC</li><li>Backtest</li></ul>
-      </div>
-      <div class="bloc">
-        <h3>Python</h3>
-        <ul class="etiquettes"><li>pandas</li><li>NumPy</li><li>statsmodels</li></ul>
-      </div>
-    </div>
-
-    <div class="liens" style="margin-top: 32px;">
-      <a class="bouton plein" href="https://github.com/SEYSHEA/powerbi-veterinaire">Voir le projet sur GitHub</a>
-    </div>
-  </div>
-</section>
 
 </main>
 
