@@ -53,8 +53,8 @@
 
 <section id="modeles">
   <div class="conteneur">
-    <h2>Le rapport et ses modèles</h2>
-    <p class="chapeau">Le rapport Power BI, puis les deux modèles qui l'alimentent. Les repères numérotés expliquent la lecture : cliquez sur un numéro ou sur une explication pour faire le lien.</p>
+    <h2>Le rapport</h2>
+    <p class="chapeau">Les repères numérotés expliquent la lecture du rapport : cliquez sur un numéro ou sur une explication pour faire le lien.</p>
 
     <div class="visualiseur">
       <!-- Le rapport Power BI ------------------------------------------ -->
@@ -81,49 +81,6 @@
         </ol>
       </div>
 
-      <!-- Modèle 1 ------------------------------------------------------ -->
-      <div class="panneau" id="page-2">
-        <div class="question">
-          <h3>Combien allons-nous vendre d'ici la fin de l'année ?</h3>
-          <button class="agrandir" type="button">Agrandir</button>
-        </div>
-        <div class="capture">
-          <img src="../img/demo_prevision.png" width="1600" height="720" loading="lazy" alt="Courbe des ventes mensuelles réelles et du modèle : apprentissage sur 2025, backtest sur janvier à septembre 2026, puis prévision d'octobre 2026 à mars 2027 avec un intervalle à 80 %.">
-          <button class="repere" data-gauche="21.3" data-haut="13.3" data-note="1" aria-label="Repère 1">1</button>
-          <button class="repere" data-gauche="49.4" data-haut="20.8" data-note="2" aria-label="Repère 2">2</button>
-          <button class="repere" data-gauche="77.4" data-haut="20.8" data-note="3" aria-label="Repère 3">3</button>
-          <button class="repere" data-gauche="83.6" data-haut="60.0" data-note="4" aria-label="Repère 4">4</button>
-        </div>
-        <p class="legende">Graphique produit en Python à partir des résultats du modèle. Données fictives.</p>
-        <ol class="notes">
-          <li class="note" data-note="1"><span class="num">1</span><strong>Un modèle par produit</strong><p>Régression sur le logarithme des ventes mensuelles : une tendance pour la croissance, un effet par mois pour la saisonnalité (pic de printemps, creux d'août).</p></li>
-          <li class="note" data-note="2"><span class="num">2</span><strong>Backtest sur une période connue</strong><p>Le modèle prévoit janvier à septembre 2026 sans les avoir vus, puis on compare au réel : 5,6&#8239;% d'erreur moyenne par mois.</p></li>
-          <li class="note" data-note="3"><span class="num">3</span><strong>Prévision et atterrissage</strong><p>Réappris sur tous les mois connus, le modèle prévoit octobre 2026 à mars 2027. Ajouté au cumul de l'année, il situe l'atterrissage à +4,0&#8239;% du budget.</p></li>
-          <li class="note" data-note="4"><span class="num">4</span><strong>L'incertitude affichée</strong><p>La bande donne l'intervalle de prévision à 80&#8239;% : un ordre de grandeur honnête plutôt qu'un chiffre unique.</p></li>
-        </ol>
-      </div>
-
-      <!-- Modèle 2 ------------------------------------------------------ -->
-      <div class="panneau" id="page-3">
-        <div class="question">
-          <h3>Quelles cliniques risquent d'arrêter de commander, et pourquoi ?</h3>
-          <button class="agrandir" type="button">Agrandir</button>
-        </div>
-        <div class="capture">
-          <img src="../img/demo_risque.png" width="1600" height="720" loading="lazy" alt="Barres des dix cliniques au risque de perte le plus élevé, de 98 % à 42 %, avec le facteur principal de chaque score et le seuil de risque élevé à 40 %.">
-          <button class="repere" data-gauche="30.9" data-haut="11.9" data-note="1" aria-label="Repère 1">1</button>
-          <button class="repere" data-gauche="66.3" data-haut="17.4" data-note="2" aria-label="Repère 2">2</button>
-          <button class="repere" data-gauche="95.6" data-haut="17.2" data-note="3" aria-label="Repère 3">3</button>
-          <button class="repere" data-gauche="3.6" data-haut="11.5" data-note="4" aria-label="Repère 4">4</button>
-        </div>
-        <p class="legende">Graphique produit en Python à partir des résultats du modèle. Score au 16/10/2026, données fictives.</p>
-        <ol class="notes">
-          <li class="note" data-note="1"><span class="num">1</span><strong>Seuil de risque élevé</strong><p>Au-dessus de 40&#8239;% : 11 cliniques, qui pèsent 80&#8239;109&#8239;€ de chiffre d'affaires sur 12 mois.</p></li>
-          <li class="note" data-note="2"><span class="num">2</span><strong>Une probabilité de perte</strong><p>Régression logistique sur six indicateurs calculés avec le passé seulement : récence, retard sur les habitudes, nombre et évolution des commandes, chiffre d'affaires, ancienneté.</p></li>
-          <li class="note" data-note="3"><span class="num">3</span><strong>Le facteur principal</strong><p>La variable qui pèse le plus dans le score de chaque clinique : une piste pour l'appel du délégué, pas une causalité.</p></li>
-          <li class="note" data-note="4"><span class="num">4</span><strong>Qui appeler en premier</strong><p>Les cliniques sont triées par risque. Les 10&#8239;% les mieux scorées contiennent 7,5 fois plus de vrais départs qu'un échantillon pris au hasard.</p></li>
-        </ol>
-      </div>
     </div>
   </div>
 </section>
