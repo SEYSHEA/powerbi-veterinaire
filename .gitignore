@@ -1,0 +1,15 @@
+# Ce dépôt ne publie que le rapport « Cliniques vétérinaires en France ».
+# Tout est exclu par défaut : seuls les fichiers listés ci-dessous sont publiés.
+# Le reste du dossier (démo, révisions, archive, .venv) reste uniquement en local.
+
+*
+!*/
+!/.gitignore
+!/README.md
+!power_bi/Cliniques_veterinaires_France.pbix
+!power_bi/VetoquinolTheme.json
+!donnees/cliniques_France/*.csv
+!documents/rapport_cliniques_France.pdf
+!documents/apercu/*.png
+
+.venv/
