@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Démo prédiction · Cloé Gueusquin</title>
-<meta name="description" content="Étude de cas Power BI et Python : prévision des ventes et score de risque de perte client, deux modèles statistiques exécutés dans Power BI, sur des données fictives.">
+<meta name="description" content="Rapport Power BI sur des ventes vétérinaires fictives : prévision de fin d'année et repérage des cliniques sur le point d'arrêter de commander, avec deux modèles Python exécutés dans Power BI.">
 <link rel="stylesheet" href="../commun.css">
 <link rel="stylesheet" href="../projet.css">
 </head>
@@ -23,26 +23,19 @@
   <div class="conteneur">
     <div class="barre">
       <a class="signature" href="../index.html">Cloé Gueusquin</a>
-      <nav aria-label="Sections">
+      <nav aria-label="Pages">
         <a href="../index.html">Accueil</a>
         <a href="../cv.html">CV</a>
       </nav>
     </div>
 
     <div class="accroche">
-      <p class="surtitre">Démo prédiction · Power BI + Python</p>
+      <p class="surtitre">Démo prédiction · Power BI et Python</p>
       <h1>Anticiper les ventes et les clients perdus</h1>
-      <p class="intro">Un rapport de ventes vétérinaires sur des données fictives, enrichi de deux modèles statistiques écrits en Python et exécutés dans Power BI : pour passer d'un reporting qui constate à un reporting qui anticipe.</p>
-
-      <ul class="chiffres">
-        <li><strong>2</strong><span>modèles Python dans Power BI</span></li>
-        <li><strong>5,6&#8239;%</strong><span>d'erreur mensuelle en backtest</span></li>
-        <li><strong>0,91</strong><span>d'AUC pour le score de risque</span></li>
-        <li><strong>×&#8239;7,5</strong><span>de départs repérés dans le top 10&#8239;%</span></li>
-      </ul>
+      <p class="intro">Un rapport de ventes vétérinaires, sur des données fictives, qui estime où l'année va atterrir et repère les cliniques sur le point de partir. Les deux modèles derrière sont écrits en Python et tournent directement dans Power BI.</p>
 
       <div class="actions">
-        <a class="bouton plein" href="#modeles">Explorer le rapport</a>
+        <a class="bouton plein" href="#rapport">Voir le rapport</a>
         <a class="bouton contour" href="https://github.com/SEYSHEA/powerbi-veterinaire/blob/main/documents/rapport_demo_prediction.pdf">Voir le PDF</a>
       </div>
     </div>
@@ -51,113 +44,175 @@
 
 <main>
 
-<section id="modeles">
+<section id="objectif">
+  <div class="conteneur texte">
+    <h2>L'objectif</h2>
+    <p>Un rapport de ventes classique raconte ce qui s'est passé. Je voulais voir s'il pouvait aussi annoncer la suite, avec une marge d'erreur connue plutôt qu'un chiffre jeté en l'air.</p>
+    <p>Il répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
+  </div>
+</section>
+
+<section id="donnees">
+  <div class="conteneur">
+    <div class="texte">
+      <h2>Les données</h2>
+      <p>Tout est inventé : les produits, les cliniques, les montants. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
+    </div>
+    <table class="donnees">
+      <thead><tr><th scope="col">Table</th><th scope="col">Ce qu'elle contient</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande, de janvier 2023 au 16 octobre 2026 : date, clinique, produit, quantité, prix</td></tr>
+        <tr><th scope="row">Budget</th><td>L'objectif mensuel de chaque produit, fixé en début d'année, pour 2025 et 2026</td></tr>
+        <tr><th scope="row">Forecast</th><td>Le budget 2026 revu en cours d'année</td></tr>
+        <tr><th scope="row">Produits</th><td>12 produits, avec leur gamme et l'espèce concernée</td></tr>
+        <tr><th scope="row">Cliniques</th><td>260 cliniques, avec leur région et leur délégué</td></tr>
+        <tr><th scope="row">Délégués</th><td>8 délégués, un par région</td></tr>
+      </tbody>
+    </table>
+    <div class="texte">
+      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile : les ventes, le budget et le forecast au centre, les produits, les cliniques et les délégués autour, plus une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rapport">
   <div class="conteneur">
     <h2>Le rapport</h2>
-    <p class="chapeau">Les repères numérotés expliquent la lecture du rapport : cliquez sur un numéro ou sur une explication pour faire le lien.</p>
+    <p class="chapeau">Cliquez sur un numéro pour lire l'explication qui va avec.</p>
 
     <div class="visualiseur">
-      <!-- Le rapport Power BI ------------------------------------------ -->
       <div class="panneau" id="page-1">
         <div class="question">
-          <h3>Ce que voit la direction commerciale</h3>
+          <h3>Une page pour la direction et pour les délégués</h3>
           <button class="agrandir" type="button">Agrandir</button>
         </div>
         <div class="capture">
           <img src="../img/demo_rapport.png" width="1804" height="1034" alt="Rapport Power BI : six chiffres clés (atterrissage, écart au budget, erreurs de backtest, cliniques à risque, chiffre d'affaires à risque), courbe des ventes réelles et du modèle avec son intervalle, et tableau des cliniques classées par probabilité de perte.">
-          <button class="repere" data-gauche="16.5" data-haut="4.8" data-note="1" aria-label="Repère 1">1</button>
+          <button class="repere" data-gauche="16.3" data-haut="4.8" data-note="1" aria-label="Repère 1">1</button>
           <button class="repere" data-gauche="50.0" data-haut="4.8" data-note="2" aria-label="Repère 2">2</button>
-          <button class="repere" data-gauche="81.2" data-haut="4.8" data-note="3" aria-label="Repère 3">3</button>
+          <button class="repere" data-gauche="81.3" data-haut="4.8" data-note="3" aria-label="Repère 3">3</button>
           <button class="repere" data-gauche="56.1" data-haut="21.2" data-note="4" aria-label="Repère 4">4</button>
           <button class="repere" data-gauche="96.7" data-haut="21.2" data-note="5" aria-label="Repère 5">5</button>
         </div>
         <p class="legende">Rapport Power BI exporté en PDF. Données fictives.</p>
         <ol class="notes">
-          <li class="note" data-note="1"><span class="num">1</span><strong>Atterrissage selon le modèle</strong><p>Estimation de fin d'année (EYE) : ventes réelles cumulées, plus la prévision du modèle pour les mois restants. 2&#8239;267&#8239;698&#8239;€, soit +4,01&#8239;% au-dessus du budget.</p></li>
-          <li class="note" data-note="2"><span class="num">2</span><strong>Le modèle face au forecast</strong><p>Erreur sur le cumul des 9 mois de backtest : 2,56&#8239;% pour le modèle, 5,84&#8239;% pour le forecast. À lire avec la mise en garde de la partie Fiabilité.</p></li>
-          <li class="note" data-note="3"><span class="num">3</span><strong>Le risque traduit en euros</strong><p>11 cliniques en risque élevé, qui représentent 80&#8239;109&#8239;€ de chiffre d'affaires sur 12 mois.</p></li>
-          <li class="note" data-note="4"><span class="num">4</span><strong>Réel et modèle sur une même courbe</strong><p>Ventes mensuelles réelles et modèle, avec la bande d'intervalle à 80&#8239;% sur le backtest et la prévision.</p></li>
-          <li class="note" data-note="5"><span class="num">5</span><strong>La liste d'action des délégués</strong><p>Les cliniques triées par probabilité de perte, avec leur facteur principal et le nombre de jours sans commande.</p></li>
+          <li class="note" data-note="1"><span class="num">1</span><strong>L'atterrissage</strong><p>Le chiffre que la direction regarde en premier : les ventes déjà réalisées en 2026, plus ce que le modèle prévoit d'ici décembre. 2&#8239;267&#8239;698&#8239;€, soit 4&#8239;% au-dessus du budget.</p></li>
+          <li class="note" data-note="2"><span class="num">2</span><strong>Le modèle contre le forecast</strong><p>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, le forecast de 5,84&#8239;%. Le forecast étant lui aussi inventé, la comparaison est à prendre avec des pincettes.</p></li>
+          <li class="note" data-note="3"><span class="num">3</span><strong>Le risque en euros</strong><p>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Ensemble, elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</p></li>
+          <li class="note" data-note="4"><span class="num">4</span><strong>Le réel et le modèle</strong><p>La courbe teal suit les ventes réelles, la verte le modèle. La bande claire autour du modèle donne sa marge d'erreur : plus elle s'élargit, moins il est sûr de lui.</p></li>
+          <li class="note" data-note="5"><span class="num">5</span><strong>La liste d'appels</strong><p>La partie qui sert aux délégués : les cliniques de la plus à risque à la moins à risque, avec la raison principale et le nombre de jours depuis la dernière commande.</p></li>
         </ol>
       </div>
+    </div>
+  </div>
+</section>
 
+<section id="mesures">
+  <div class="conteneur">
+    <h2>Les mesures DAX</h2>
+    <p class="chapeau">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner la page.</p>
+    <div class="mesures">
+      <article class="mesure">
+        <h3>Gross Sales</h3>
+        <p>Le chiffre d'affaires au prix tarif, calculé ligne par ligne. Presque tout le reste en dépend.</p>
+        <pre><code>SUMX ( SellIn, SellIn[Quantite] * SellIn[Prix_Tarif_Unitaire] )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Dernier mois complet</h3>
+        <p>La date qui sépare le réel de la prévision. Un mois commencé mais pas terminé n'est jamais compté comme du réel.</p>
+        <pre><code>EOMONTH ( CALCULATE ( MAX ( SellIn[Date] ), ALL ( SellIn ) ), -1 )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>EYE modele</h3>
+        <p>L'atterrissage de fin d'année : le cumul réel de janvier au dernier mois complet (<code>CF annee</code>), plus la prévision du modèle jusqu'à décembre.</p>
+        <pre><code>[CF annee] + [Prevision fin annee]</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Ecart EYE modele vs budget</h3>
+        <p>L'écart entre cet atterrissage et le budget de l'année, en pourcentage.</p>
+        <pre><code>DIVIDE ( [EYE modele] - [Budget annee], [Budget annee] )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Erreur backtest modele</h3>
+        <p>Ce que le modèle avait prévu pour janvier–septembre 2026, comparé à ce qui s'est vraiment vendu. La même mesure existe pour le forecast.</p>
+        <pre><code>VAR fin = [Dernier mois complet]
+VAR reel = CALCULATE ( [Gross Sales], REMOVEFILTERS ( Calendrier ),
+    DATESBETWEEN ( Calendrier[Date], DATE ( YEAR ( fin ), 1, 1 ), fin ) )
+VAR prev = CALCULATE ( SUM ( prevision_produit[Prevision] ),
+    prevision_produit[Type] = "Backtest", REMOVEFILTERS ( Calendrier ) )
+RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Reel mois complets</h3>
+        <p>Coupe la courbe des ventes au dernier mois complet. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</p>
+        <pre><code>IF ( MAX ( Calendrier[Date] ) &lt;= [Dernier mois complet], [Gross Sales] )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Cliniques risque eleve</h3>
+        <p>Le nombre de cliniques que le modèle classe en risque élevé, au-delà de 40&#8239;% de probabilité de perte.</p>
+        <pre><code>CALCULATE ( COUNTROWS ( score_clients ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>CA a risque</h3>
+        <p>Ce que ces cliniques ont acheté sur douze mois : la perte possible, traduite en euros.</p>
+        <pre><code>CALCULATE ( SUM ( score_clients[CA_12_mois] ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
+      </article>
     </div>
   </div>
 </section>
 
 <section id="fiabilite">
   <div class="conteneur">
-    <h2>Fiabilité</h2>
-    <p class="chapeau">Un modèle ne vaut que si on a mesuré son erreur. Chacun a été évalué sur une période qu'il n'avait jamais vue.</p>
+    <h2>Les modèles et leur fiabilité</h2>
+    <p class="chapeau">Avant de faire confiance à un modèle, j'ai mesuré son erreur sur une période qu'il n'avait jamais vue.</p>
     <div class="resultats">
       <div class="bloc">
-        <h3>Prévision : backtest janvier–septembre 2026</h3>
+        <h3>Prévision des ventes</h3>
+        <p>Un modèle par produit, avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
         <table class="comparaison">
-          <thead><tr><th scope="col">Indicateur</th><th scope="col">Modèle</th><th scope="col">Forecast</th></tr></thead>
+          <thead><tr><th scope="col">Sur janvier–septembre 2026</th><th scope="col">Modèle</th><th scope="col">Forecast</th></tr></thead>
           <tbody>
             <tr><td>Erreur moyenne par mois</td><td class="meilleur">5,6&#8239;%</td><td>10,3&#8239;%</td></tr>
-            <tr><td>Erreur sur le cumul des 9 mois</td><td class="meilleur">2,6&#8239;%</td><td>5,8&#8239;%</td></tr>
-            <tr><td>Mois réels dans l'intervalle à 80&#8239;%</td><td>8 sur 9</td><td>–</td></tr>
+            <tr><td>Erreur sur le total des 9 mois</td><td class="meilleur">2,6&#8239;%</td><td>5,8&#8239;%</td></tr>
+            <tr><td>Mois réels dans la marge à 80&#8239;%</td><td>8 sur 9</td><td>–</td></tr>
           </tbody>
         </table>
         <div class="encadre">
           <strong>À lire avec prudence</strong>
-          Dans ces données fictives, le forecast a été tiré au hasard autour du budget : l'avantage du modèle est artificiel. Ce que le projet montre, c'est la méthode : mesurer l'erreur avant de proposer un chiffre. Sur de vraies données, modèle et forecast se complètent.
+          Le forecast de ces données a été tiré au hasard autour du budget, donc le modèle part avantagé. Ce qui m'intéressait, c'est la méthode. Sur de vraies données, les chefs de produit savent des choses que l'historique ignore, comme un lancement ou une rupture de stock. Le modèle servirait alors de point de comparaison, pas de remplaçant.
         </div>
       </div>
       <div class="bloc">
-        <h3>Risque client : période de test</h3>
+        <h3>Risque de perte client</h3>
+        <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé : ce qu'on savait de chaque clinique à une date donnée, et ce qui s'est passé ensuite.</p>
         <table class="comparaison">
-          <thead><tr><th scope="col">Indicateur</th><th scope="col">Valeur</th></tr></thead>
+          <thead><tr><th scope="col">Sur la période de test</th><th scope="col">Valeur</th></tr></thead>
           <tbody>
             <tr><td>AUC</td><td class="meilleur">0,91</td></tr>
-            <tr><td>Taux de perte observé</td><td>2,8&#8239;%</td></tr>
-            <tr><td>Vrais départs parmi les 10&#8239;% les mieux scorés</td><td class="meilleur">21&#8239;%</td></tr>
-            <tr><td>Cliniques actives scorées</td><td>211</td></tr>
+            <tr><td>Part de cliniques réellement perdues</td><td>2,8&#8239;%</td></tr>
+            <tr><td>Part de vraies pertes parmi les 10&#8239;% les mieux scorées</td><td class="meilleur">21&#8239;%</td></tr>
           </tbody>
         </table>
         <div class="encadre">
-          <strong>Sans fuite de données</strong>
-          Le modèle apprend sur des « photos » mensuelles du passé et il est testé sur des photos plus récentes, sans chevauchement : il ne voit jamais le futur qu'il doit prédire.
+          <strong>La limite de l'exercice</strong>
+          Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="demarche">
-  <div class="conteneur">
-    <h2>Démarche</h2>
-    <p class="chapeau">Des modèles intégrés au rapport, et pas dans un fichier à part.</p>
-    <ol class="etapes">
-      <li>
-        <h3>Modéliser les données</h3>
-        <p>Modèle en étoile : ventes, budget et forecast comme faits ; produits, cliniques et délégués comme dimensions ; une table Calendrier en DAX.</p>
-      </li>
-      <li>
-        <h3>Exécuter Python dans Power Query</h3>
-        <p>Les scripts reçoivent la table des ventes, ajustent les modèles avec statsmodels et renvoient leurs résultats sous forme de tables du rapport.</p>
-      </li>
-      <li>
-        <h3>Restituer pour la décision</h3>
-        <p>Mesures DAX d'atterrissage, d'écart au budget et de chiffre d'affaires à risque, et la liste des cliniques à relancer avec leur facteur principal.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
 <section id="competences">
   <div class="conteneur">
     <h2>Compétences mobilisées</h2>
-    <p class="chapeau">Ce que ce projet montre concrètement.</p>
-    <div class="competences">
+    <div class="competences" style="margin-top: 20px;">
       <div class="bloc">
         <h3>Power BI</h3>
         <ul class="etiquettes"><li>Modèle en étoile</li><li>Mesures DAX</li><li>Power Query</li><li>Python dans Power Query</li></ul>
       </div>
       <div class="bloc">
         <h3>Statistiques</h3>
-        <ul class="etiquettes"><li>Régression log-linéaire</li><li>Saisonnalité</li><li>Intervalle de prévision</li><li>Régression logistique</li><li>AUC</li><li>Backtest</li></ul>
+        <ul class="etiquettes"><li>Régression</li><li>Saisonnalité</li><li>Intervalle de prévision</li><li>Régression logistique</li><li>AUC</li><li>Backtest</li></ul>
       </div>
       <div class="bloc">
         <h3>Python</h3>
