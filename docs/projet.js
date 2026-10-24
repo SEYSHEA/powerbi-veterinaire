@@ -54,6 +54,14 @@ if (fenetre) {
       fenetre.showModal();
     });
   });
+  // Un clic sur une capture de visuel l'ouvre aussi en grand.
+  document.querySelectorAll(".tuile .capture img").forEach((image) => {
+    image.addEventListener("click", () => {
+      grande.src = image.src;
+      grande.alt = image.alt;
+      fenetre.showModal();
+    });
+  });
   fenetre.querySelector(".fermer").addEventListener("click", () => fenetre.close());
   fenetre.addEventListener("click", (e) => { if (e.target === fenetre) fenetre.close(); });
 }

@@ -227,3 +227,5 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .tuile-tete.seul { justify-content: flex-end; margin-bottom: 8px; }
 .tuile-tete .agrandir { background: none; border: 1px solid var(--trait); color: var(--texte-2); border-radius: 3px; padding: 5px 12px; font: 14px var(--police); cursor: pointer; }
 .tuile-tete .agrandir:hover { border-color: var(--teal); color: var(--teal-fonce); }
+
+.tuile .capture img { cursor: zoom-in; }
