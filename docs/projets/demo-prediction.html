@@ -19,42 +19,88 @@
   <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
 </div>
 
-<header class="entete">
-  <div class="conteneur">
-    <div class="barre">
-      <a class="signature" href="../index.html">Cloé Gueusquin</a>
-      <nav aria-label="Pages">
-        <a href="../index.html">Accueil</a>
-        <a href="../cv.html">CV</a>
-      </nav>
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="profil-lateral" href="../index.html"><span class="avatar"><img src="../img/photo.jpg" alt="Photo de Cloé Gueusquin" onerror="this.remove()">CG</span><strong>Cloé Gueusquin</strong><small>Data Analyst</small></a>
+    <p class="rubrique">CV</p>
+    <a class="lien" href="../index.html" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
+    <p class="rubrique">Dashboards</p>
+    <a class="lien" href="../projets/demo-prediction.html" aria-current="page" title="Démo prédiction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Démo prédiction</span></a>
+    <div class="bas">
+      <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
+      <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
+      <a class="lien" href="https://github.com/cloegueus" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5"/><path d="M15 21v-3.5a3 3 0 0 0-.9-2.4c3-.3 6-1.5 6-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C5.7 1.1 4.6 1.4 4.6 1.4a4.8 4.8 0 0 0-.1 3.5A5.2 5.2 0 0 0 3 8.5c0 5.1 3 6.3 6 6.6a3 3 0 0 0-.9 2.4V21"/></svg><span>GitHub</span></a>
     </div>
+  </aside>
 
-    <div class="accroche">
-      <h1>Prévoir les ventes et repérer les clients perdus</h1>
-      <p class="intro">Un rapport Power BI construit sur des ventes vétérinaires fictives. Il estime le chiffre de fin d'année et signale les cliniques qui risquent d'arrêter de commander, grâce à deux modèles écrits en Python qui tournent dans Power BI.</p>
+  <div class="principal">
+    <header class="barre-haut">
+      <div>
+        <p class="fil">Dashboards</p>
+        <h1>Démo prédiction</h1>
+        <p class="sous-titre">Un rapport Power BI construit sur des ventes vétérinaires fictives. Il estime le chiffre de fin d'année et signale les cliniques qui risquent d'arrêter de commander, grâce à deux modèles écrits en Python qui tournent dans Power BI.</p>
+      </div>
+    </header>
 
-      <div class="actions">
-        <a class="bouton plein" href="#rapport">Voir le rapport</a>
+<main class="tableau">
+
+  <section class="tuile l-4" id="objectif">
+    <h2>Objectif</h2>
+    <p class="sous">Deux questions, deux publics</p>
+    <p>Ce rapport répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
+  </section>
+
+  <section class="tuile l-8" id="chiffres">
+    <h2>Chiffres clés</h2>
+    <p class="sous">Valeurs du rapport au 16 octobre 2026</p>
+    <div class="chiffres-cles">
+      <div class="chiffre-cle">
+        <p class="libelle">Atterrissage 2026</p>
+        <p class="valeur">2&#8239;267&#8239;698&#8239;€</p>
+        <p class="contexte"><b>+4,01&#8239;%</b> par rapport au budget de 2&#8239;180&#8239;180&#8239;€</p>
+      </div>
+      <div class="chiffre-cle">
+        <p class="libelle">Erreur de prévision</p>
+        <p class="valeur">2,56&#8239;%</p>
+        <p class="contexte">sur janvier–septembre 2026, contre <b>5,84&#8239;%</b> pour le forecast</p>
+      </div>
+      <div class="chiffre-cle">
+        <p class="libelle">Cliniques en risque élevé</p>
+        <p class="valeur">11</p>
+        <p class="contexte">sur 211 cliniques actives, soit <b>80&#8239;109&#8239;€</b> de chiffre d'affaires sur 12 mois</p>
       </div>
     </div>
-  </div>
-</header>
+  </section>
 
-<main>
-
-<section id="objectif">
-  <div class="conteneur texte">
-    <h2>L'objectif</h2>
-    <p>Ce rapport répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
-  </div>
-</section>
-
-<section id="donnees">
-  <div class="conteneur">
-    <div class="texte">
-      <h2>Les données</h2>
-      <p>Les produits, les cliniques et les montants sont tous inventés. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
+  <section class="tuile l-12" id="rapport">
+    <div class="tuile-tete">
+      <div>
+        <h2>Le rapport</h2>
+        <p class="sous">Une page pour la direction et pour les délégués</p>
+      </div>
+      <button class="agrandir" type="button">Agrandir</button>
     </div>
+    <div class="cote-a-cote">
+      <div>
+        <div class="capture">
+          <img src="../img/demo_rapport.png" width="1804" height="1034" alt="Rapport Power BI : six chiffres clés (atterrissage, écart au budget, erreurs de backtest, cliniques à risque, chiffre d'affaires à risque), courbe des ventes réelles et du modèle avec son intervalle, et tableau des cliniques classées par probabilité de perte.">
+        </div>
+        <p class="legende">Rapport Power BI exporté en PDF. Données fictives.</p>
+      </div>
+      <ul class="points">
+          <li>L'atterrissage additionne les ventes déjà réalisées en 2026 et la prévision du modèle jusqu'à décembre. Il atteint 2&#8239;267&#8239;698&#8239;€, soit 4&#8239;% au-dessus du budget.</li>
+          <li>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, contre 5,84&#8239;% pour le forecast. Le forecast étant lui aussi inventé, la comparaison reste indicative.</li>
+          <li>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</li>
+          <li>Sur la courbe, le teal suit les ventes réelles et le vert le modèle, entouré de sa marge d'erreur.</li>
+          <li>Le tableau classe les cliniques de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande. C'est la liste d'appels des délégués.</li>
+        </ul>
+    </div>
+  </section>
+
+  <section class="tuile l-7" id="donnees">
+    <h2>Les données</h2>
+    <p class="sous">Six tables fictives</p>
+    <p>Les produits, les cliniques et les montants sont tous inventés. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
     <table class="donnees">
       <thead><tr><th scope="col">Table</th><th scope="col">Ce qu'elle contient</th></tr></thead>
       <tbody>
@@ -66,42 +112,20 @@
         <tr><th scope="row">Délégués</th><td>8 délégués, un par région</td></tr>
       </tbody>
     </table>
-    <div class="texte">
-      <p style="margin-top: 22px;">Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="rapport">
-  <div class="conteneur">
-    <h2>Le rapport</h2>
+  <section class="tuile l-5" id="modele">
+    <h2>Le modèle de données</h2>
+    <p class="sous">Un modèle en étoile</p>
+    <p>Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
+    <div class="groupe"><span>Faits</span><ul class="etiquettes"><li>Ventes</li><li>Budget</li><li>Forecast</li></ul></div>
+    <div class="groupe"><span>Dimensions</span><ul class="etiquettes"><li>Produits</li><li>Cliniques</li><li>Délégués</li><li>Calendrier</li></ul></div>
+    <div class="groupe"><span>Résultats des modèles Python</span><ul class="etiquettes"><li>prevision_produit</li><li>prevision_total</li><li>qualite_modele</li><li>score_clients</li><li>facteurs_risque</li><li>qualite_risque</li></ul></div>
+  </section>
 
-    <div class="visualiseur">
-      <div class="panneau" id="page-1">
-        <div class="question">
-          <h3>Une page pour la direction et pour les délégués</h3>
-          <button class="agrandir" type="button">Agrandir</button>
-        </div>
-        <div class="capture">
-          <img src="../img/demo_rapport.png" width="1804" height="1034" alt="Rapport Power BI : six chiffres clés (atterrissage, écart au budget, erreurs de backtest, cliniques à risque, chiffre d'affaires à risque), courbe des ventes réelles et du modèle avec son intervalle, et tableau des cliniques classées par probabilité de perte.">
-        </div>
-        <p class="legende">Rapport Power BI exporté en PDF. Données fictives.</p>
-        <ul class="points">
-          <li>L'atterrissage additionne les ventes déjà réalisées en 2026 et la prévision du modèle jusqu'à décembre. Il atteint 2&#8239;267&#8239;698&#8239;€, soit 4&#8239;% au-dessus du budget.</li>
-          <li>Sur les neuf premiers mois de 2026, le modèle s'est trompé de 2,56&#8239;% sur le total, contre 5,84&#8239;% pour le forecast. Le forecast étant lui aussi inventé, la comparaison reste indicative.</li>
-          <li>11 cliniques ont plus de 40&#8239;% de chances d'arrêter de commander. Elles ont représenté 80&#8239;109&#8239;€ sur les douze derniers mois.</li>
-          <li>Sur la courbe, le teal suit les ventes réelles et le vert le modèle, entouré de sa marge d'erreur.</li>
-          <li>Le tableau classe les cliniques de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande. C'est la liste d'appels des délégués.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="mesures">
-  <div class="conteneur">
+  <section class="tuile l-12" id="mesures">
     <h2>Les mesures DAX</h2>
-    <p class="chapeau">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner la page.</p>
+    <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner la page.</p>
     <div class="mesures">
       <article class="mesure">
         <h3>Gross Sales</h3>
@@ -110,7 +134,7 @@
       </article>
       <article class="mesure">
         <h3>Dernier mois complet</h3>
-        <p>La date qui sépare le réel de la prévision. Un mois commencé mais pas terminé n'est jamais compté comme du réel.</p>
+        <p>La dernière vente enregistrée date du 16 octobre 2026. La mesure prend la fin du mois précédent, le 30 septembre, pour ne garder que des mois entiers. C'est la frontière entre le réel et la prévision.</p>
         <pre><code>EOMONTH ( CALCULATE ( MAX ( SellIn[Date] ), ALL ( SellIn ) ), -1 )</code></pre>
       </article>
       <article class="mesure">
@@ -135,7 +159,7 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
       </article>
       <article class="mesure">
         <h3>Reel mois complets</h3>
-        <p>Coupe la courbe des ventes au dernier mois complet. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</p>
+        <p>Pour chaque mois du graphique, la mesure compare le dernier jour du mois au 30 septembre. Au-delà, elle ne renvoie rien et la courbe du réel s'arrête en septembre. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</p>
         <pre><code>IF ( MAX ( Calendrier[Date] ) &lt;= [Dernier mois complet], [Gross Sales] )</code></pre>
       </article>
       <article class="mesure">
@@ -149,17 +173,12 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
         <pre><code>CALCULATE ( SUM ( score_clients[CA_12_mois] ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="fiabilite">
-  <div class="conteneur">
-    <h2>Les modèles et leur fiabilité</h2>
-    <p class="chapeau">Avant de faire confiance à un modèle, j'ai mesuré son erreur sur une période qu'il n'avait jamais vue.</p>
-    <div class="resultats">
-      <div class="bloc">
-        <h3>Prévision des ventes</h3>
-        <p>Un modèle par produit avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
+  <section class="tuile l-6">
+    <h2>Prévision des ventes</h2>
+    <p class="sous">Backtest sur janvier–septembre 2026</p>
+    <p>Un modèle par produit avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
         <table class="comparaison">
           <thead><tr><th scope="col">Sur janvier–septembre 2026</th><th scope="col">Modèle</th><th scope="col">Forecast</th></tr></thead>
           <tbody>
@@ -169,10 +188,11 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
           </tbody>
         </table>
         <p class="remarque">Le forecast de ces données a été tiré au hasard autour du budget, donc le modèle part avantagé. Ce qui m'intéressait, c'est la méthode. Sur de vraies données, les chefs de produit savent des choses que l'historique ignore, comme un lancement ou une rupture de stock. Le modèle servirait alors de point de comparaison, pas de remplaçant.</p>
-      </div>
-      <div class="bloc">
-        <h3>Risque de perte client</h3>
-        <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé, qui associent ce qu'on savait de chaque clinique à une date donnée et ce qui s'est passé ensuite.</p>
+  </section>
+  <section class="tuile l-6">
+    <h2>Risque de perte client</h2>
+    <p class="sous">Période de test jamais vue par le modèle</p>
+    <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé, qui associent ce qu'on savait de chaque clinique à une date donnée et ce qui s'est passé ensuite.</p>
         <table class="comparaison">
           <thead><tr><th scope="col">Sur la période de test</th><th scope="col">Valeur</th></tr></thead>
           <tbody>
@@ -182,20 +202,13 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
           </tbody>
         </table>
         <p class="remarque">Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 
 </main>
 
-<footer>
-  <div class="conteneur">
-    <span>Projet personnel, non affilié à Vetoquinol. Données entièrement fictives.</span>
-    <span>Réalisé par <a href="../index.html">Cloé Gueusquin</a></span>
+    <p class="pied">Projet personnel, non affilié à Vetoquinol. Données entièrement fictives.</p>
   </div>
-</footer>
+</div>
 
 <dialog id="agrandissement" aria-label="Capture agrandie">
   <button class="fermer" type="button" aria-label="Fermer">×</button>

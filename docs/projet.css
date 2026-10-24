@@ -16,7 +16,7 @@ h1 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.15; margin: 0 0 14px; f
 .chiffres strong { display: block; font-size: clamp(21px, 5.6vw, 28px); line-height: 1.1; font-weight: 600; white-space: nowrap; }
 .chiffres span { display: block; font-size: 14px; line-height: 1.35; margin-top: 4px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.bouton { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+.bouton { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
 .bouton.plein { background: var(--blanc); color: var(--ardoise); }
 .bouton.plein:hover { background: var(--teal-clair); }
 .bouton.contour { color: var(--blanc); border-color: rgba(255,255,255,.35); background: transparent; }
@@ -37,9 +37,9 @@ h2 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; font-weight: 600; }
 .panneau[hidden] { display: none; }
 .question { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin: 0 0 16px; }
 .question h3 { margin: 0; font-size: 21px; font-weight: 600; }
-.question .agrandir { background: none; border: 1px solid var(--trait); color: var(--texte-2); border-radius: 6px; padding: 6px 12px; font: 14px var(--police); cursor: pointer; }
+.question .agrandir { background: none; border: 1px solid var(--trait); color: var(--texte-2); border-radius: 3px; padding: 6px 12px; font: 14px var(--police); cursor: pointer; }
 .question .agrandir:hover { border-color: var(--teal); color: var(--teal-fonce); }
-.capture { position: relative; border: 1px solid var(--trait); border-radius: 8px; overflow: hidden; }
+.capture { position: relative; border: 1px solid var(--trait); border-radius: 3px; overflow: hidden; }
 .legende { font-size: 14px; color: var(--texte-2); margin: 10px 0 0; }
 
 .repere { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%;
@@ -106,8 +106,8 @@ dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height
 .comparaison th, .comparaison td { padding: 9px 10px; border-bottom: 1px solid var(--trait); text-align: right; }
 .comparaison th:first-child, .comparaison td:first-child { text-align: left; }
 .comparaison thead th { background: var(--ardoise); color: var(--blanc); font-weight: 600; }
-.comparaison thead th:first-child { border-radius: 6px 0 0 0; }
-.comparaison thead th:last-child { border-radius: 0 6px 0 0; }
+.comparaison thead th:first-child { border-radius: 3px 0 0 0; }
+.comparaison thead th:last-child { border-radius: 0 3px 0 0; }
 .comparaison .meilleur { color: var(--teal-fonce); font-weight: 700; }
 .resultats .bloc p.remarque { margin: 14px 0 0; font-size: 15px; line-height: 1.6; color: var(--texte-2); }
 
@@ -133,7 +133,7 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .mesure { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .mesure h3 { margin: 0; font: 600 15.5px/1.3 Consolas, "Cascadia Mono", ui-monospace, monospace; color: var(--teal-fonce); }
 .mesure p { margin: 0; color: var(--texte-2); font-size: 15px; }
-.mesure pre { margin: auto 0 0; padding: 10px 12px; background: var(--fond); border-radius: 6px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mesure pre { margin: auto 0 0; padding: 10px 12px; background: var(--fond); border-radius: 3px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .mesure pre code { background: none; padding: 0; color: var(--ardoise); font-size: 13px; line-height: 1.55; }
 
 @media (max-width: 860px) {
@@ -144,3 +144,66 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .points { margin: 16px 0 0; padding-left: 22px; display: grid; gap: 8px; }
 .points li { font-size: 15.5px; line-height: 1.55; color: var(--texte); }
 .points li::marker { color: var(--teal); }
+
+/* Dans le cadre tableau de bord : la zone principale gère déjà marges et largeur. */
+.principal .conteneur { max-width: none; padding: 0; }
+.principal main > section { padding-top: 32px; }
+.principal main > section:first-child { padding-top: 0; }
+.principal main h2 { font-size: 20px; }
+.principal .barre-haut .sous-titre { max-width: 95ch; }
+
+/* --- Page dashboard en tuiles --------------------------------------------- */
+.tableau { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; }
+.principal .tableau > .tuile { padding: 20px 22px; }
+.tuile { min-width: 0; background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); }
+.l-4 { grid-column: span 4; }
+.l-5 { grid-column: span 5; }
+.l-6 { grid-column: span 6; }
+.l-7 { grid-column: span 7; }
+.l-8 { grid-column: span 8; }
+.l-12 { grid-column: span 12; }
+
+.principal .tuile h2 { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.tuile .sous { margin: 2px 0 14px; font-size: 13px; color: var(--texte-2); }
+.tuile p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; }
+.tuile p.legende { margin: 8px 0 0; font-size: 13.5px; color: var(--texte-2); }
+.tuile p.remarque { margin: 14px 0 0; font-size: 14.5px; color: var(--texte-2); }
+.tuile-tete { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+
+/* Le rapport : la capture et ses explications côte à côte. */
+.cote-a-cote { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.cote-a-cote .points { margin: 0; }
+
+/* Chiffres clés : sans boîte, trois colonnes séparées par un filet fin. */
+.chiffres-cles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 6px; }
+.chiffre-cle { padding: 2px 22px; border-left: 1px solid var(--trait); }
+.chiffre-cle:first-child { padding-left: 0; border-left: 0; }
+.tuile .chiffre-cle p { margin: 0; }
+.tuile .chiffre-cle .libelle { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--texte-2); }
+.tuile .chiffre-cle .valeur { margin: 8px 0 6px; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; color: var(--ardoise); white-space: nowrap; }
+.tuile .chiffre-cle .contexte { font-size: 14px; line-height: 1.45; color: var(--texte-2); }
+.chiffre-cle .contexte b { font-weight: 600; color: var(--teal-fonce); }
+
+/* Dans une tuile, les tableaux et les mesures n'ont plus leur propre ombre. */
+.tuile .donnees { box-shadow: none; border: 1px solid var(--trait); font-size: 14.5px; }
+.tuile .donnees th, .tuile .donnees td { padding: 9px 12px; }
+.tuile .comparaison { font-size: 14.5px; }
+.tuile .mesures { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tuile .mesure { padding: 14px 16px; background: var(--fond); box-shadow: none; border: 1px solid var(--trait); }
+.tuile .mesure pre { background: var(--blanc); }
+.tuile .groupe { margin: 0 0 12px; }
+.tuile .groupe span { display: block; margin-bottom: 6px; font-size: 13px; color: var(--texte-2); }
+.tuile .groupe .etiquettes li { font-size: 13px; }
+
+@media (max-width: 1250px) {
+  .tuile .mesures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1100px) {
+  .l-4, .l-5, .l-6, .l-7, .l-8 { grid-column: span 12; }
+  .cote-a-cote { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 700px) {
+  .chiffres-cles { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .chiffre-cle { padding: 0; border-left: 0; }
+  .tuile .mesures { grid-template-columns: minmax(0, 1fr); }
+}

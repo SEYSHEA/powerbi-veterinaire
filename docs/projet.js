@@ -48,7 +48,7 @@ if (fenetre) {
   const grande = fenetre.querySelector("img");
   document.querySelectorAll(".agrandir").forEach((bouton) => {
     bouton.addEventListener("click", () => {
-      const image = bouton.closest(".panneau").querySelector(".capture img");
+      const image = bouton.closest(".panneau, .tuile").querySelector(".capture img");
       grande.src = image.src;
       grande.alt = image.alt;
       fenetre.showModal();

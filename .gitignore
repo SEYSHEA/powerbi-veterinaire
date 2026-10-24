@@ -12,6 +12,7 @@
 !docs/*.js
 !docs/projets/*.html
 !docs/img/*.png
+!docs/img/*.jpg
 
 .venv/
 .claude
