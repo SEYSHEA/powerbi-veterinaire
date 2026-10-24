@@ -229,3 +229,8 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .tuile-tete .agrandir:hover { border-color: var(--teal); color: var(--teal-fonce); }
 
 .tuile .capture img { cursor: zoom-in; }
+
+/* Mesures DAX : colonnes de hauteur libre, le code suit directement le texte. */
+.tuile .mesures { display: block; columns: 3 300px; column-gap: 14px; }
+.tuile .mesure { break-inside: avoid; margin: 0 0 14px; }
+.tuile .mesure pre { margin: 4px 0 0; }
